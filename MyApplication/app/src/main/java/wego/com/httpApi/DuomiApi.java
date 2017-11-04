@@ -1,5 +1,7 @@
 package wego.com.httpApi;
 
+import org.json.JSONObject;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -15,5 +17,6 @@ public interface DuomiApi {
 
     //dynamicId   315
     @GET("txn/getTxnCurrentPrice")
-    Observable<HttpResult> getTxtCurrentPrice(@Query("topicId") String topicId);
+    Observable<JSONObject> getTxtCurrentPrice(@Query("topicId") String topicId);
+
 }

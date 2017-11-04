@@ -2,7 +2,9 @@ package wego.com.mvp.model;
 
 import android.util.Log;
 
-import org.reactivestreams.Subscriber;
+
+import org.json.JSONObject;
+import org.reactivestreams.Subscription;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -12,7 +14,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import wego.com.http.RetrofitService;
 import wego.com.http.common.interz.OnNetRequestListener;
-import wego.com.http.response.HttpResult;
 import wego.com.mvp.presenter.BasePresenter;
 
 /**
@@ -21,30 +22,36 @@ import wego.com.mvp.presenter.BasePresenter;
 
 public class TxtPriceModelImpl implements TxtPriceModel {
 
-    CompositeDisposable compositeDisposable;
+    //从Activity传过来还是在此处new未定
     private OnNetRequestListener onNetRequestListener;
-    public TxtPriceModelImpl(OnNetRequestListener onNetRequestListener) {
+    private BasePresenter basePresenter;
+    public TxtPriceModelImpl(OnNetRequestListener onNetRequestListener, BasePresenter basePresenter) {
         this.onNetRequestListener=onNetRequestListener;
-        compositeDisposable = new CompositeDisposable();
+        this.basePresenter=basePresenter;
+    }
+
+    public TxtPriceModelImpl() {
+        super();
     }
 
     @Override
     public void getCurrentPrice(String topicId) {
-        Observable<HttpResult> txtCurrentPrice = RetrofitService.getInstance().createDuomiAPI().getTxtCurrentPrice(topicId);
-
+        Observable<JSONObject> txtCurrentPrice = RetrofitService.getInstance().createDuomiAPI().getTxtCurrentPrice(topicId);
         txtCurrentPrice
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<HttpResult>(){
+                .subscribe(new Observer<JSONObject>(){
+
                     @Override
                     public void onSubscribe(Disposable d) {
+                        basePresenter.addDisposable(d);
                         Log.i("test","onSubscribe.....");
-//                        onNetRequestListener.onStart();
+                        onNetRequestListener.onStart();
                     }
 
                     @Override
-                    public void onNext(HttpResult httpResult) {
-                        Log.i("test","onNext....."+httpResult.getMessage());
+                    public void onNext(JSONObject httpResult) {
+                        Log.i("test","onNext.....");
                         onNetRequestListener.onSuccess(httpResult);
                     }
 

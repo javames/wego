@@ -3,6 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="translate">#44000000</color>
-
+    <color name="translate_2per">#D8000000</color>
+    <color name="translate">#00000000</color>
+    <color name="main_blue">#00aaFF</color>
+    <color name="white">#ffffff</color>
+    <color name="dizhonghai">#08428C</color>
+    <color name="red">#f75b47</color>
+    <color name="black">#000000</color>
+    <color name="white1">#F9F9F9</color>
+    <color name="text_gray3">#E7E7E7</color>
+    <color name="login_title">#0f0f0f</color>
+    <color name="miring_focus">#F04B2B</color>
 </resources>

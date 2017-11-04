@@ -1,54 +1,38 @@
 package wego.com.http.response;
 
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.reflect.TypeToken;
+import org.json.JSONObject;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 
+import io.reactivex.annotations.Nullable;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
-import retrofit2.Converter.Factory;
 import retrofit2.Retrofit;
 
 /**
- * Created by Administrator on 2017/10/28.
+ * Created by Administrator on 2017/11/2.
  */
 
-public class JsonConverterFactory extends Factory {
-    public static JsonConverterFactory create() {
-        return create(new Gson());
+public class JSONConverterFactory extends Converter.Factory  {
+    public JSONConverterFactory() {
     }
 
-    public static JsonConverterFactory create(Gson gson) {
-        return new JsonConverterFactory(gson);
-
+    public static JSONConverterFactory create() {
+        return new JSONConverterFactory();
     }
 
-    private final Gson gson;
-
-    private JsonConverterFactory(Gson gson) {
-        if (gson == null) throw new NullPointerException("gson == null");
-        this.gson = gson;
-    }
-
-
+    @Nullable
     @Override
-    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations,
-                                                            Retrofit retrofit) {
-
-        TypeAdapter<?> adapter = gson.getAdapter(TypeToken.get(type));
-        return new JsonResponseBodyConverter<>(gson, adapter); //响应
+    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
+        return new JsonResponseBodyConverter<JSONObject>();
     }
 
+    @Nullable
     @Override
-    public Converter<?, RequestBody> requestBodyConverter(Type type,
-                                                          Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
+    public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
 
-        TypeAdapter<?> adapter = gson.getAdapter(TypeToken.get(type));
-        return new JsonRequestBodyConverter<>(gson, adapter); //请求
+        return new JsonRequestBodyConverter<JSONObject>(); //请求
     }
-
 }

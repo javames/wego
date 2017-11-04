@@ -1,4 +1,4 @@
-package wego.com.util;
+package wego.com.encrypt;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

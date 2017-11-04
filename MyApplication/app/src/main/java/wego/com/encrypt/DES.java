@@ -1,4 +1,4 @@
-package wego.com.util;
+package wego.com.encrypt;
 
 import android.text.TextUtils;
 

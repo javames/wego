@@ -1,6 +1,7 @@
 package wego.com.mvp.presenter;
 
 import wego.com.http.common.interz.OnNetRequestListener;
+import wego.com.mvp.model.Price;
 import wego.com.mvp.view.BaseView;
 
 /**

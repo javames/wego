@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <FrameLayout
+        android:id="@+id/left_icon_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/px_30"
+        style="@style/tab_title_icon"
+        >
+
+        <ImageView
+            android:id="@+id/left_icon"
+            android:layout_width="@dimen/px_65"
+            android:layout_height="@dimen/px_65"
+            android:layout_marginLeft="@dimen/px_30"
+            android:src="@mipmap/ic_launcher_round" />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/right_icon_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="@dimen/px_30"
+        style="@style/tab_title_icon">
+
+
+    <ImageView
+        android:layout_width="@dimen/px_65"
+        android:layout_height="@dimen/px_65"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_marginRight="@dimen/px_30"
+        android:layout_centerVertical="true"
+        android:id="@+id/right_icon" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tab_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/login_title"
+        android:text="标题"
+        />
+</merge>

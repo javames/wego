@@ -1,10 +1,15 @@
 package wego.com.http;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.util.ArrayMap;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
@@ -13,9 +18,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import wego.com.ResetApplication;
-import wego.com.http.response.JsonConverterFactory;
+import wego.com.http.response.JSONConverterFactory;
 import wego.com.http.util.NetUtil;
 import wego.com.httpApi.DuomiApi;
 
@@ -58,7 +62,7 @@ public class RetrofitService {
                     duomiAPI = new Retrofit.Builder()
                             .client(mOkHttpClient)
                             .baseUrl(BASE_URL)
-                            .addConverterFactory(JsonConverterFactory.create())
+                            .addConverterFactory(JSONConverterFactory.create())
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .build().create(DuomiApi.class);
                 }
@@ -115,5 +119,28 @@ public class RetrofitService {
     public static String getCacheControl() {
         return NetUtil.isConnected(ResetApplication.getContext()) ? CACHE_CONTROL_NETWORK : CACHE_CONTROL_CACHE;
     }
+
+
+    private static ArrayMap<String, CompositeDisposable> netManager = new ArrayMap<>();
+
+    //为了避免错误的取消了，key建议使用packagename + calssName
+    public static void add(String key, Disposable disposable) {
+        if (netManager.containsKey(key)) {
+            netManager.get(key).add(disposable);
+        } else {
+            CompositeDisposable compositeDisposable = new CompositeDisposable();
+            compositeDisposable.add(disposable);
+            netManager.put(key, compositeDisposable);
+        }
+    }
+
+    public static void remove(String key) {
+        if (netManager.containsKey(key)) {
+            CompositeDisposable compositeDisposable = netManager.get(key);
+            compositeDisposable.clear();
+        }
+    }
+
+
 
 }

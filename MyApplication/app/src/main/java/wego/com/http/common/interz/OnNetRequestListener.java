@@ -28,4 +28,6 @@ public interface OnNetRequestListener <T> {
      * @param t 异常
      */
     void onFailure(Throwable t);
+
+
 }

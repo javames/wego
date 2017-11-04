@@ -5,7 +5,16 @@ package wego.com.mvp.model;
  */
 
 public class Price {
+//    private String acctDesc;
     private int currentPrice;
+
+//    public String getAcctDesc() {
+//        return acctDesc;
+//    }
+//
+//    public void setAcctDesc(String acctDesc) {
+//        this.acctDesc = acctDesc;
+//    }
 
     public int getCurrentPrice() {
         return currentPrice;
