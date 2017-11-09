@@ -1,5 +1,7 @@
 package wego.com.mvp.presenter;
 
+import org.json.JSONObject;
+
 import wego.com.http.common.interz.OnNetRequestListener;
 import wego.com.mvp.model.Price;
 import wego.com.mvp.view.BaseView;
@@ -11,5 +13,6 @@ import wego.com.mvp.view.BaseView;
 public interface TxtPricePresenter extends BasePresenter {
 
     public void getTxtData(String topicId, OnNetRequestListener listener, int requestCode);
+    public void getCaseRecord(JSONObject obj, OnNetRequestListener listener, int requestCode);
 
 }

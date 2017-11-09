@@ -52,38 +52,69 @@ public class TestActivity extends AppCompatActivity implements TxtPriceView {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txtPricePresenter.getTxtData("493", new OnNetRequestListener<JSONObject>() {
-                    @Override
-                    public void onStart() {
-                        Log.i("test","onStart()");
-                    }
+//                txtPricePresenter.getTxtData("493", new OnNetRequestListener<JSONObject>() {
+//                    @Override
+//                    public void onStart() {
+//                        Log.i("test","onStart()");
+//                    }
+//
+//                    @Override
+//                    public void onFinish() {
+//                        Log.i("test","onFinish()");
+//
+//                    }
+//
+//                    @Override
+//                    public void onSuccess(JSONObject data) {
+//                        HttpResultParse.parse(data.toString(), Price.class, new Interz.ParseResponse() {
+//                            @Override
+//                            public void error(String error) {
+//
+//                            }
+//
+//                            @Override
+//                            public void success(Object obj) {
+//                                Price price= (Price) obj;
+//                                Log.i("test","currentPrice= "+price.getCurrentPrice());
+//                            }
+//                        });
+//                    }
+//                    @Override
+//                    public void onFailure(Throwable t) {
+//                        Log.i("test","onFailure()");
+//                    }
+//                },0);
 
-                    @Override
-                    public void onFinish() {
-                        Log.i("test","onFinish()");
+                try{
+                    JSONObject jsonObject=new JSONObject();
+                    jsonObject.put("limit",8);
+                    jsonObject.put("offset",1);
+                    jsonObject.put("token","131624/885c17700b77413eb3da72d9441035a9");
+                    txtPricePresenter.getCaseRecord(jsonObject, new OnNetRequestListener() {
+                        @Override
+                        public void onStart() {
+                            Log.i("test","onStart()");
+                        }
 
-                    }
+                        @Override
+                        public void onFinish() {
+                            Log.i("test","onFinish()");
+                        }
 
-                    @Override
-                    public void onSuccess(JSONObject data) {
-                        HttpResultParse.parse(data.toString(), Price.class, new Interz.ParseResponse() {
-                            @Override
-                            public void error(String error) {
+                        @Override
+                        public void onSuccess(Object data) {
+                            Log.i("test","onSuccess() data= "+data);
+                        }
 
-                            }
+                        @Override
+                        public void onFailure(Throwable t) {
+                            Log.i("test","onFailure()");
+                        }
+                    },2);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
 
-                            @Override
-                            public void success(Object obj) {
-                                Price price= (Price) obj;
-                                Log.i("test","currentPrice= "+price.getCurrentPrice());
-                            }
-                        });
-                    }
-                    @Override
-                    public void onFailure(Throwable t) {
-                        Log.i("test","onFailure()");
-                    }
-                },0);
             }
         });
     }

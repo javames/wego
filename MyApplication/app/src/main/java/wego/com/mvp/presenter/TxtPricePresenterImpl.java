@@ -1,5 +1,7 @@
 package wego.com.mvp.presenter;
 
+import org.json.JSONObject;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import wego.com.http.common.interz.OnNetRequestListener;
@@ -27,6 +29,14 @@ public class TxtPricePresenterImpl implements TxtPricePresenter{
         txtPriceModel.getCurrentPrice(topicId);
     }
 
+
+    @Override
+    public void getCaseRecord(JSONObject obj, OnNetRequestListener listener, int requestCode) {
+        if(txtPriceModel==null){
+            txtPriceModel=new TxtPriceModelImpl(listener,this);
+        }
+        txtPriceModel.getCaseRecord(obj);
+    }
 
     /**
      * 将Disposable添加

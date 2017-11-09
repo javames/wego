@@ -104,4 +104,39 @@ public class TxtPriceModelImpl implements TxtPriceModel {
     }
 
 
+    @Override
+    public void getCaseRecord(JSONObject obj) {
+        Observable<JSONObject> txtCurrentPrice = RetrofitService.getInstance().createDuomiAPI().getActCaseRecord(obj);
+        txtCurrentPrice
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<JSONObject>(){
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        basePresenter.addDisposable(d);
+                        Log.i("test","onSubscribe.....");
+                        onNetRequestListener.onStart();
+                    }
+
+                    @Override
+                    public void onNext(JSONObject httpResult) {
+                        Log.i("test","onNext.....");
+                        onNetRequestListener.onSuccess(httpResult);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i("test","onError....."+e.getMessage()+"// "+e.getCause());
+                        onNetRequestListener.onFailure(e);
+                        onNetRequestListener.onFinish();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.i("test","onCompleted.....");
+                        onNetRequestListener.onFinish();
+                    }
+                });
+    }
 }
