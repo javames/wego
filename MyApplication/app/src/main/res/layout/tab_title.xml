@@ -17,8 +17,8 @@
             android:id="@+id/left_icon"
             android:layout_width="@dimen/px_65"
             android:layout_height="@dimen/px_65"
-            android:layout_marginLeft="@dimen/px_30"
-            android:src="@mipmap/ic_launcher_round" />
+            android:layout_marginLeft="@dimen/px_30"/>
+
     </FrameLayout>
 
 
@@ -34,7 +34,6 @@
     <ImageView
         android:layout_width="@dimen/px_65"
         android:layout_height="@dimen/px_65"
-        android:src="@mipmap/ic_launcher_round"
         android:layout_marginRight="@dimen/px_30"
         android:layout_centerVertical="true"
         android:id="@+id/right_icon" />
@@ -45,8 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textSize="16sp"
         android:textColor="@color/login_title"
         android:text="标题"
         />

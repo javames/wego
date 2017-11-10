@@ -17,6 +17,13 @@ allprojects {
     repositories {
         jcenter()
         google()
+
+        maven { url 'https://www.jitpack.io' }
+        maven { url "https://jitpack.io" }
+
+        maven {
+            url "https://raw.githubusercontent.com/HyphenateInc/Hyphenate-SDK-Android/master/repository"
+        }
     }
 }
 

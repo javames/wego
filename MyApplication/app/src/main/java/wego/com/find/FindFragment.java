@@ -2,32 +2,58 @@ package wego.com.find;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import wego.com.R;
+import wego.com.common.BaseFragment;
 import wego.com.common.BaseLazyFragment;
+import wego.com.find.adapter.FindFragmentAdapter;
+import wego.com.find.bean.FindBean;
+import wego.com.widget.SingleTabTiltle;
 
 /**
  * Created by Administrator on 2017/11/8.
  */
 
-public class FindFragment extends BaseLazyFragment {
+public class FindFragment extends BaseFragment {
 
-    private Unbinder bind;
-    @Nullable
+    @BindView(R.id.find_title)
+    SingleTabTiltle singleTab;
+    @BindView(R.id.refresh)
+    SwipeRefreshLayout refresh;
+    @BindView(R.id.recycler)
+    RecyclerView recyclerView;
+
+    private ArrayList<FindBean> findBeanList;
+    private FindFragmentAdapter adapter;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_find,container,false);
-        bind = ButterKnife.bind(this, view);
-        initView();
-        return view;
+    protected View setContentView(LayoutInflater inflater) {
+        return inflater.inflate(R.layout.fragment_find,null);
     }
 
-    private void initView(){
+    @Override
+    protected void initView() {
+        super.initView();
+        singleTab.setTitle(getResources().getString(R.string.find));
+        singleTab.setTitleColor(getResources().getColor(R.color.white));
+        findBeanList=new ArrayList<>();
+        for (int i = 0; i <10 ; i++) {
+            findBeanList.add(new FindBean());
+        }
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        adapter=new FindFragmentAdapter(mContext,findBeanList);
+        recyclerView.setAdapter(adapter);
     }
 }

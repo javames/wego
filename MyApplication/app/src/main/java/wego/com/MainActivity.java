@@ -2,18 +2,18 @@ package wego.com;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Build;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.yinglan.alphatabs.AlphaTabsIndicator;
 import com.yinglan.alphatabs.OnTabChangedListner;
@@ -21,22 +21,14 @@ import com.yinglan.alphatabs.OnTabChangedListner;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Retrofit;
 import wego.com.common.BaseActivity;
+import wego.com.find.FindFragment;
 import wego.com.hompage.HomePageFragment;
 import wego.com.hompage.adapter.HomePageAdapter;
-import wego.com.http.RetrofitService;
-import wego.com.http.common.interz.OnNetRequestListener;
-import wego.com.http.response.HttpResult;
 import wego.com.mvp.presenter.TxtPricePresenter;
-import wego.com.mvp.presenter.TxtPricePresenterImpl;
 import wego.com.mvp.view.TxtPriceView;
 import wego.com.util.WindowUtil;
 import wego.com.widget.NoScrollViewPager;
-
-import static wego.com.util.WindowUtil.getStatusBarHeight;
 
 public class MainActivity extends BaseActivity implements TxtPriceView{
 
@@ -60,8 +52,13 @@ public class MainActivity extends BaseActivity implements TxtPriceView{
         WindowUtil.fullScreen(this);
         fragmentList=new ArrayList<>();
         for (int i = 0; i <4; i++) {
-            HomePageFragment homePage=new HomePageFragment();
-            fragmentList.add(homePage);
+            if(i==1){
+                FindFragment findFragment=new FindFragment();
+                fragmentList.add(findFragment);
+            }else{
+                HomePageFragment homePage=new HomePageFragment();
+                fragmentList.add(homePage);
+            }
         }
         pageAdapter=new HomePageAdapter(getSupportFragmentManager(),fragmentList);
         viewPager.setAdapter(pageAdapter);
@@ -76,20 +73,54 @@ public class MainActivity extends BaseActivity implements TxtPriceView{
                 Log.i("test"," tabNum= "+tabNum);
                 switch (tabNum){
                     case 0:
+                        setRootMargin(false);
                         WindowUtil.fullScreen(activity);
                         break;
                     case 1:
+                        setRootMargin(true);
                         WindowUtil.setStatusBarColor(activity,R.color.main_blue);
                         break;
                     case 2:
+                        setRootMargin(true);
                         WindowUtil.setStatusBarColor(activity,R.color.main_blue);
                         break;
                     case 3:
+                        setRootMargin(true);
                         WindowUtil.setStatusBarColor(activity,R.color.main_blue);
                         break;
                 }
             }
         });
+    }
+
+    /**
+     * 解决透明状态栏下，布局无法自动拉起的问题
+     * 手动设置View的高度
+     */
+    private void setRootMargin(final boolean flag) {
+        final View rootView = ((ViewGroup) this.findViewById(android.R.id.content))
+                .getChildAt(0);
+        final View decorView = getWindow().getDecorView();
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @Override
+            public void onGlobalLayout() {
+                Rect rect= new Rect();
+                decorView.getWindowVisibleDisplayFrame(rect);
+                int screenHeight = decorView.getRootView().getHeight();
+                int heightDifferent = screenHeight - rect.bottom;
+                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) rootView.getLayoutParams();
+                if(flag){
+                    lp.topMargin=WindowUtil.getStatusBarHeight(MainActivity.this);
+                }else{
+                    lp.topMargin=0;
+                }
+
+//                lp.setMargins(0, 0, 0, heightDifferent);
+                rootView.requestLayout();
+            }
+        });
+
     }
 
     @Override

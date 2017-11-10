@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="190dp">
+
+        <com.youth.banner.Banner
+            android:id="@+id/home_page_banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_blue" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical"
+            android:layout_height="48dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:lines="1"
+                android:maxLength="6"
+                android:textColor="@color/white"
+                android:text="南京"/>
+
+            <ImageView
+                android:id="@+id/city_select_icon"
+                android:layout_width="@dimen/px_90"
+                android:layout_height="@dimen/px_90"
+                android:paddingLeft="5dp"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:paddingBottom="8dp"
+                android:paddingRight="13dp"
+                android:src="@mipmap/zhankai"
+                />
+
+            <LinearLayout
+                android:id="@+id/trade_home_search"
+                android:layout_width="0dp"
+                android:layout_height="26.7dp"
+                android:layout_weight="1"
+                android:background="@drawable/find_trade_search_bg"
+                android:alpha="0.5"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/px_45"
+                    android:layout_height="@dimen/px_45"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:src="@mipmap/grey_search"/>
+
+                <EditText
+                    android:id="@+id/search_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/login_title"
+                    android:background="@null"
+                    android:alpha="0.5"
+                    android:textSize="12sp"
+                    android:hint="@string/please_input_search"
+                    />
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/msg_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/px_30"
+                android:clickable="true"
+                android:layout_marginLeft="@dimen/px_30"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/me_chat"
+                />
+        </LinearLayout>
+    </FrameLayout>

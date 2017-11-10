@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/fengjing"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:maxWidth="300dp"
+        android:layout_height="wrap_content"
+        android:maxHeight="40dp"
+        android:ellipsize="end"
+        android:text="镇江一日游，快乐一整天"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_centerInParent="true"
+        />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/head_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/white"
+        android:src="@mipmap/icon"
+        />
+    <ImageView
+        android:id="@+id/dianzan_btn_find"
+        android:layout_width="@dimen/px_78"
+        android:layout_height="@dimen/px_78"
+        android:src="@mipmap/dianzan"
+        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/dianzan_btn_find"
+        android:layout_alignBottom="@id/dianzan_btn_find"
+        android:layout_marginBottom="3dp"
+        android:text="23"
+        />
+
+    <ImageView
+        android:id="@+id/lulan_btn_find"
+        android:layout_width="@dimen/px_78"
+        android:layout_height="@dimen/px_78"
+        android:src="@mipmap/liulan"
+        android:padding="5dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toEndOf="@+id/lulan_btn_find"
+        android:text="23"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/publish_btn_find"
+        android:layout_width="@dimen/px_78"
+        android:layout_height="@dimen/px_78"
+        android:src="@mipmap/publish"
+        android:padding="5dp"
+        android:layout_toRightOf="@id/lulan_btn_find"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/publish_btn_find"
+        android:layout_alignBottom="@id/dianzan_btn_find"
+        android:layout_marginBottom="4dp"
+        android:text="23"
+        android:id="@+id/textView" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/line"
+        ></View>
+</RelativeLayout>

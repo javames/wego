@@ -14,4 +14,9 @@
     <color name="text_gray3">#E7E7E7</color>
     <color name="login_title">#0f0f0f</color>
     <color name="miring_focus">#F04B2B</color>
+    <color name="white_5per">#55000000</color>
+    <color name="transparent_">#999999</color>
+    <color name="text_gray1">#666666</color>
+    <color name="line">#7FCCCCCC</color>
+
 </resources>
