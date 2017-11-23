@@ -31,4 +31,11 @@
         <item name="android:clickable">true</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
+
+    <style name="me_item_text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
 </resources>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <wego.com.widget.SingleTabTiltle
+        android:id="@+id/hpage_dtl_tab"
+        android:layout_width="match_parent"
+        android:layout_height="44.7dp"
+        android:background="@color/main_blue"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_30"
+        android:background="@color/background"
+        />
+<android.support.v4.widget.NestedScrollView
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/px_30"
+    android:id="@+id/nested_scrollview"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:src="@mipmap/test2"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px_30"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:text="简介"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px_30"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:maxHeight="80dp"
+            android:ellipsize="end"
+            android:textSize="13sp"
+            android:text="中山陵位于南京境内，紫金山旁，钟林毓秀，风景秀美，是国父孙中山葬身之地，三民主义，统一中国。为后人所瞻仰。附近有美龄宫，明孝陵等地，是南京休闲游玩的好去处，是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处金秋时节枫叶火红，漫山遍野，美不胜收。"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/px_30"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/main_blue"
+                android:text="招募总人数："
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/main_blue"
+                android:textSize="13sp"
+                android:text="40"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/px_30"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/main_blue"
+                android:text="已报名人数："
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/main_blue"
+                android:textSize="13sp"
+                android:text="23"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/red"
+            android:gravity="center"
+            android:background="@drawable/hpage_join_shape"
+            android:text="报名参加"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_30"
+            android:background="@color/background"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/px_30"
+            android:text="报名须知："
+            />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:paddingLeft="@dimen/px_30"
+            android:paddingRight="@dimen/px_30"
+            android:layout_height="wrap_content"
+            android:text="1.本次活动以共同爱好，分享彼此快乐为宗旨，因此，拒绝黄,赌,毒,希望大家共同维护一个健康的环境。"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/px_30"
+            android:paddingRight="@dimen/px_30"
+            android:layout_marginTop="5dp"
+            android:text="2.本次活动以共同爱好，分享彼此快乐为宗旨，因此，拒绝黄,赌,毒,希望大家共同维护一个健康的环境。"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/px_30"
+            android:paddingRight="@dimen/px_30"
+            android:layout_marginTop="5dp"
+            android:text="3.本次活动以共同爱好，分享彼此快乐为宗旨，因此，拒绝黄,赌,毒,希望大家共同维护一个健康的环境。"
+            />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
+</LinearLayout>

@@ -25,8 +25,10 @@ import wego.com.common.BaseActivity;
 import wego.com.find.FindFragment;
 import wego.com.hompage.HomePageFragment;
 import wego.com.hompage.adapter.HomePageAdapter;
+import wego.com.me.MeFragment;
 import wego.com.mvp.presenter.TxtPricePresenter;
 import wego.com.mvp.view.TxtPriceView;
+import wego.com.recommend.RecomFragment;
 import wego.com.util.WindowUtil;
 import wego.com.widget.NoScrollViewPager;
 
@@ -51,15 +53,21 @@ public class MainActivity extends BaseActivity implements TxtPriceView{
         super.initView();
         WindowUtil.fullScreen(this);
         fragmentList=new ArrayList<>();
-        for (int i = 0; i <4; i++) {
-            if(i==1){
-                FindFragment findFragment=new FindFragment();
-                fragmentList.add(findFragment);
-            }else{
-                HomePageFragment homePage=new HomePageFragment();
-                fragmentList.add(homePage);
-            }
-        }
+//        for (int i = 0; i <4; i++) {
+//            if(i==1){
+//                FindFragment findFragment=new FindFragment();
+//                fragmentList.add(findFragment);
+//            }else{
+//                HomePageFragment homePage=new HomePageFragment();
+//                fragmentList.add(homePage);
+//            }
+//        }
+
+        fragmentList.add(new HomePageFragment());
+        fragmentList.add(new FindFragment());
+        fragmentList.add(new RecomFragment());
+        fragmentList.add(new MeFragment());
+
         pageAdapter=new HomePageAdapter(getSupportFragmentManager(),fragmentList);
         viewPager.setAdapter(pageAdapter);
         viewPager.setOffscreenPageLimit(4);
@@ -70,23 +78,29 @@ public class MainActivity extends BaseActivity implements TxtPriceView{
         alphaTabsIndicator.setOnTabChangedListner(new OnTabChangedListner() {
             @Override
             public void onTabSelected(int tabNum) {
+                Window window = MainActivity.this.getWindow();
+                View decorView = window.getDecorView();
                 Log.i("test"," tabNum= "+tabNum);
                 switch (tabNum){
                     case 0:
+                        decorView.setBackgroundResource(R.color.white);
                         setRootMargin(false);
                         WindowUtil.fullScreen(activity);
                         break;
                     case 1:
-                        setRootMargin(true);
+                        decorView.setBackgroundResource(R.color.main_blue);
                         WindowUtil.setStatusBarColor(activity,R.color.main_blue);
+                        setRootMargin(true);
                         break;
                     case 2:
-                        setRootMargin(true);
+                        decorView.setBackgroundResource(R.color.main_blue);
                         WindowUtil.setStatusBarColor(activity,R.color.main_blue);
+                        setRootMargin(true);
                         break;
                     case 3:
-                        setRootMargin(true);
+                        decorView.setBackgroundResource(R.color.main_blue);
                         WindowUtil.setStatusBarColor(activity,R.color.main_blue);
+                        setRootMargin(true);
                         break;
                 }
             }

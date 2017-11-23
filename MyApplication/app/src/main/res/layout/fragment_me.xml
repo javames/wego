@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/main_blue">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/head_icon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/test"
+            />
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/head_icon"
+            android:textColor="@color/login_title"
+            android:text="落叶无痕"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/nickname"
+            android:layout_toRightOf="@id/nickname"
+            android:src="@mipmap/v" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginTop="@dimen/px_30"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/icon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/my_wallet"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/px_30"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/icon1"
+            android:text="我的钱包"
+            style="@style/me_item_text"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/px_30"
+            android:src="@mipmap/arrow_right"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginTop="@dimen/px_30"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/icon0"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/office_renzheng"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/px_30"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/icon0"
+            android:text="官方认证"
+            style="@style/me_item_text"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/px_30"
+            android:src="@mipmap/arrow_right"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginTop="@dimen/px_30"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/icon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/wo_faqi"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/px_30"
+            />
+        <TextView
+            android:layout_toRightOf="@id/icon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我发起的"
+            style="@style/me_item_text"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/px_30"
+            android:src="@mipmap/arrow_right"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/icon3"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/wo_canyu"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/icon3"
+            android:text="我参与的"
+            style="@style/me_item_text"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/px_30"
+            android:src="@mipmap/arrow_right"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/icon4"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/my_read"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/icon4"
+            android:text="我的浏览"
+            style="@style/me_item_text"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/px_30"
+            android:src="@mipmap/arrow_right"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

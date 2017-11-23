@@ -28,7 +28,7 @@ public class HomePagerDynamicAdapter extends BaseMultiItemQuickAdapter<HPageDyna
 
 
     private ArrayList<String> bannerList;
-    private boolean isExpand;
+
 
     public HomePagerDynamicAdapter(Context context, ArrayList data) {
         super(data);
@@ -50,38 +50,10 @@ public class HomePagerDynamicAdapter extends BaseMultiItemQuickAdapter<HPageDyna
 
     private void initView(BaseViewHolder helper){
         initBanner((Banner) helper.getView(R.id.home_page_banner));
-        final ImageView citySelectIcon=helper.getView(R.id.city_select_icon);
-        citySelectIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                isExpand = isExpand == true ? false : true;
-                citySelectIcon.setAlpha(0f);
-                changeSelectIcon(citySelectIcon);
-            }
-        });
-
-        helper.getView(R.id.msg_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ViewClickAnim.clickAnim(view);
-            }
-        });
-    }
-
-    private void changeSelectIcon(final ImageView citySelectIcon) {
-        if (isExpand) {
-            citySelectIcon.setImageResource(R.mipmap.shousuo);
-        } else {
-            citySelectIcon.setImageResource(R.mipmap.zhankai);
-        }
-        citySelectIcon.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                citySelectIcon.setAlpha(1f);
-            }
-        }, 100);
 
     }
+
+
 
     private void initBanner(Banner banner){
         bannerList = new ArrayList<>();

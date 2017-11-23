@@ -27,6 +27,10 @@
         <activity android:name=".TestActivity">
 
         </activity>
+        <activity
+            android:name=".hompage.HPageDtlActivity"
+            android:theme="@style/AppTheme"></activity>
+
     </application>
 
 </manifest>

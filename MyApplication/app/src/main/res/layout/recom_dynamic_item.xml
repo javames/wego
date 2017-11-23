@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-    <ImageView
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/px_30"
+    android:paddingBottom="@dimen/px_30"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginBottom="@dimen/px_30"
+        android:layout_marginLeft="@dimen/px_30"
+        android:layout_marginRight="@dimen/px_30"
+        android:textColor="@color/login_title"
+        android:lineSpacingExtra="2dp"
+        android:textSize="15sp"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
+        android:text="浩瀚大海，胸中豪迈，海风的苦瓜肯定加快打飞机啊都是 开始就罚款是粉色的空间访客事件发生的地方都是靠科士达发 上课的发生纠纷的撒旦法 撒空间访客"
+        />
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/fengjing"
-        />
+        android:src="@mipmap/test2"/>
+
 
 
         <TextView
@@ -20,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/px_30"
             android:layout_marginTop="5dp"
+            android:textSize="15sp"
             android:textColor="@color/login_title"
             android:text="中山陵"
             />
@@ -47,7 +67,60 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="杭州"
+            android:text="南京"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/recom_shape"
+            android:textColor="@color/main_blue"
+            android:textSize="12sp"
+            android:text="孙中山纪念堂"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/recom_shape"
+            android:textColor="@color/main_blue"
+            android:textSize="12sp"
+            android:text="美玲宫"
             />
     </LinearLayout>
 </LinearLayout>
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="45dp"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:layout_alignTop="@id/img"-->
+        <!--android:layout_marginLeft="@dimen/px_30"-->
+        <!--android:layout_marginTop="@dimen/px_30">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/icon"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:src="@mipmap/recommend_select" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/icon"-->
+            <!--android:layout_marginLeft="2dp"-->
+            <!--android:textColor="@color/red"-->
+            <!--android:textSize="10sp"-->
+            <!--android:text="推荐"-->
+            <!--/>-->
+    <!--</RelativeLayout>-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        android:layout_marginLeft="@dimen/px_30"
+        android:layout_marginRight="@dimen/px_30"
+        />
+</RelativeLayout>
