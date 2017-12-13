@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Build;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.yinglan.alphatabs.AlphaTabsIndicator;
 import com.yinglan.alphatabs.OnTabChangedListner;
@@ -40,6 +42,8 @@ public class MainActivity extends BaseActivity implements TxtPriceView{
     AlphaTabsIndicator alphaTabsIndicator;
     @BindView(R.id.page_home)
     NoScrollViewPager viewPager;
+    @BindView(R.id.ft_button)
+    FloatingActionButton ftBtn;
     private ArrayList<Fragment> fragmentList;
     private HomePageAdapter pageAdapter;
 
@@ -63,6 +67,12 @@ public class MainActivity extends BaseActivity implements TxtPriceView{
 //            }
 //        }
 
+        ftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast("吐司");
+            }
+        });
         fragmentList.add(new HomePageFragment());
         fragmentList.add(new FindFragment());
         fragmentList.add(new RecomFragment());
@@ -86,25 +96,42 @@ public class MainActivity extends BaseActivity implements TxtPriceView{
                         decorView.setBackgroundResource(R.color.white);
                         setRootMargin(false);
                         WindowUtil.fullScreen(activity);
+                        showFloatBtn();
                         break;
                     case 1:
                         decorView.setBackgroundResource(R.color.main_blue);
-                        WindowUtil.setStatusBarColor(activity,R.color.main_blue);
-                        setRootMargin(true);
+//                        WindowUtil.setStatusBarColor(activity,R.color.main_blue);
+//                        setRootMargin(true);
+                        showFloatBtn();
                         break;
                     case 2:
                         decorView.setBackgroundResource(R.color.main_blue);
-                        WindowUtil.setStatusBarColor(activity,R.color.main_blue);
-                        setRootMargin(true);
+//                        WindowUtil.setStatusBarColor(activity,R.color.main_blue);
+//                        setRootMargin(true);
+                        showFloatBtn();
                         break;
                     case 3:
                         decorView.setBackgroundResource(R.color.main_blue);
-                        WindowUtil.setStatusBarColor(activity,R.color.main_blue);
-                        setRootMargin(true);
+                        hideFloatBtn();
+//                        WindowUtil.setStatusBarColor(activity,R.color.main_blue);
+//                        setRootMargin(true);
                         break;
                 }
             }
         });
+    }
+
+    private void showFloatBtn(){
+        int visibility = ftBtn.getVisibility();
+        if(visibility==View.GONE){
+            ftBtn.setVisibility(View.VISIBLE);
+        }
+    }
+    private void hideFloatBtn(){
+        int visibility = ftBtn.getVisibility();
+        if(visibility!=View.GONE){
+            ftBtn.setVisibility(View.GONE);
+        }
     }
 
     /**

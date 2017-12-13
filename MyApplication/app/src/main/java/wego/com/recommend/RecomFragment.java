@@ -7,6 +7,7 @@ import android.text.LoginFilter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import wego.com.common.BaseFragment;
 import wego.com.interz.OnVerticalScrollListener;
 import wego.com.recommend.adapter.RecomAdapter;
 import wego.com.recommend.bean.RecomBean;
+import wego.com.util.WindowUtil;
 import wego.com.widget.SingleTabTiltle;
 
 /**
@@ -33,6 +35,8 @@ public class RecomFragment extends BaseFragment {
     RecyclerView recyclerView;
     @BindView(R.id.city_select_lay)
     RelativeLayout selectTab;
+    @BindView(R.id.title)
+    View title;
 
     private RecomAdapter recomAdapter;
     ArrayList<RecomBean> recomList;
@@ -44,6 +48,8 @@ public class RecomFragment extends BaseFragment {
     @Override
     protected void initView() {
         super.initView();
+        int statusBarHeight = WindowUtil.getStatusBarHeight(mContext);
+        title.setLayoutParams(new LinearLayout.LayoutParams(title.getMeasuredWidth(),statusBarHeight));
         tabTiltle.setTitle(getResources().getString(R.string.recom));
         tabTiltle.setTitleColor(getResources().getColor(R.color.white));
 

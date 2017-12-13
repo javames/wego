@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <View
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        />
+
     <wego.com.widget.SingleTabTiltle
         android:id="@+id/single_tab"
         android:layout_width="match_parent"

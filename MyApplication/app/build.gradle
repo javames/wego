@@ -19,7 +19,7 @@ android {
     }
 
     packagingOptions {
-        pickFirst  'META-INF/*'
+        pickFirst 'META-INF/*'
     }
 }
 
@@ -48,5 +48,6 @@ dependencies {
 
     compile 'de.hdodenhof:circleimageview:2.1.0'
 }
+
 
 

@@ -11,6 +11,7 @@ import wego.com.MainActivity;
 import wego.com.R;
 import wego.com.common.BaseActivity;
 import wego.com.login.LoginActivity;
+import wego.com.util.WindowUtil;
 
 /**
  * Created by Administrator on 2017/10/28.
@@ -36,6 +37,11 @@ public class SplashActivity extends BaseActivity{
     @Override
     protected void initView() {
         super.initView();
+        Window window = this.getWindow();
+        View decorView = window.getDecorView();
+        decorView.setBackgroundResource(R.color.white);
+        WindowUtil.fullScreen(activity);
+
         myTimer=new MyTimer(5000,1000);
         myTimer.start();
     }

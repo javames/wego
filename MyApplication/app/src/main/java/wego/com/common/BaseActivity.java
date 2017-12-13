@@ -55,7 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     protected void Toast(String msg){
-        Toast.makeText(this,msg,Toast.LENGTH_LONG);
+        Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
     }
 
     protected void ToActivity(Context activity,Class activityClass,Bundle bundle){

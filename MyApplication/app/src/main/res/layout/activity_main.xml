@@ -1,91 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="wego.com.MainActivity">
+    android:layout_height="match_parent">
 
-
-    <wego.com.widget.NoScrollViewPager
-        android:id="@+id/page_home"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
-    <com.yinglan.alphatabs.AlphaTabsIndicator
-        android:id="@+id/alphaIndicator"
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:elevation="4dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white1"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="wego.com.MainActivity">
 
 
-        <com.yinglan.alphatabs.AlphaTabView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tab_selector"
-            android:paddingBottom="5dp"
-            android:paddingTop="6.7dp"
-            app:paddingTexwithIcon="3.3dp"
-            app:tabIconNormal="@mipmap/shouye_normal"
-            app:tabIconSelected="@mipmap/shouye_select"
-            app:tabTextSize="10sp"
-            app:tabText="首页"
-            app:textColorNormal="@color/login_title"
-            app:textColorSelected="@color/miring_focus" />
+        <wego.com.widget.NoScrollViewPager
+            android:id="@+id/page_home"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-        <com.yinglan.alphatabs.AlphaTabView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tab_selector"
-            android:paddingBottom="5dp"
-            android:paddingTop="6.7dp"
-            app:paddingTexwithIcon="3.3dp"
-            app:tabIconNormal="@mipmap/faxian_normal"
-            app:tabIconSelected="@mipmap/faxian_select"
-            app:tabText="发现"
-            app:tabTextSize="10sp"
-            app:textColorNormal="@color/login_title"
-            app:textColorSelected="@color/miring_focus" />
+        <com.yinglan.alphatabs.AlphaTabsIndicator
+            android:id="@+id/alphaIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white1"
+            android:elevation="4dp"
+            android:orientation="horizontal">
 
 
-        <com.yinglan.alphatabs.AlphaTabView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tab_selector"
-            android:paddingBottom="5dp"
-            android:paddingTop="6.7dp"
-            app:paddingTexwithIcon="3.3dp"
-            app:tabIconNormal="@mipmap/recommend_normal"
-            app:tabIconSelected="@mipmap/recommend_select"
-            app:tabText="推荐"
-            app:tabTextSize="10sp"
-            app:textColorNormal="@color/login_title"
-            app:textColorSelected="@color/miring_focus"/>
+            <com.yinglan.alphatabs.AlphaTabView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_selector"
+                android:paddingBottom="5dp"
+                android:paddingTop="6.7dp"
+                app:paddingTexwithIcon="3.3dp"
+                app:tabIconNormal="@mipmap/shouye_normal"
+                app:tabIconSelected="@mipmap/shouye_select"
+                app:tabText="首页"
+                app:tabTextSize="10sp"
+                app:textColorNormal="@color/login_title"
+                app:textColorSelected="@color/miring_focus" />
 
-        <com.yinglan.alphatabs.AlphaTabView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tab_selector"
-            android:paddingBottom="5dp"
-            android:paddingTop="6.7dp"
-            app:paddingTexwithIcon="3.3dp"
-            app:tabIconNormal="@mipmap/my_normal"
-            app:tabIconSelected="@mipmap/my_select"
-            app:tabText="我的"
-            app:tabTextSize="10sp"
-            app:textColorNormal="@color/login_title"
-            app:textColorSelected="@color/miring_focus" />
+            <com.yinglan.alphatabs.AlphaTabView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_selector"
+                android:paddingBottom="5dp"
+                android:paddingTop="6.7dp"
+                app:paddingTexwithIcon="3.3dp"
+                app:tabIconNormal="@mipmap/faxian_normal"
+                app:tabIconSelected="@mipmap/faxian_select"
+                app:tabText="发现"
+                app:tabTextSize="10sp"
+                app:textColorNormal="@color/login_title"
+                app:textColorSelected="@color/miring_focus" />
 
-        <!--<com.yinglan.alphatabs.AlphaTabView-->
+
+            <com.yinglan.alphatabs.AlphaTabView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_selector"
+                android:paddingBottom="5dp"
+                android:paddingTop="6.7dp"
+                app:paddingTexwithIcon="3.3dp"
+                app:tabIconNormal="@mipmap/recommend_normal"
+                app:tabIconSelected="@mipmap/recommend_select"
+                app:tabText="推荐"
+                app:tabTextSize="10sp"
+                app:textColorNormal="@color/login_title"
+                app:textColorSelected="@color/miring_focus" />
+
+            <com.yinglan.alphatabs.AlphaTabView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_selector"
+                android:paddingBottom="5dp"
+                android:paddingTop="6.7dp"
+                app:paddingTexwithIcon="3.3dp"
+                app:tabIconNormal="@mipmap/my_normal"
+                app:tabIconSelected="@mipmap/my_select"
+                app:tabText="我的"
+                app:tabTextSize="10sp"
+                app:textColorNormal="@color/login_title"
+                app:textColorSelected="@color/miring_focus" />
+
+            <!--<com.yinglan.alphatabs.AlphaTabView-->
             <!--android:layout_width="0dp"-->
             <!--android:layout_height="match_parent"-->
             <!--android:visibility="gone"-->
@@ -100,6 +104,22 @@
             <!--app:tabTextSize="10sp"-->
             <!--app:textColorNormal="@color/login_title"-->
             <!--app:textColorSelected="@color/miring_focus" />-->
-    </com.yinglan.alphatabs.AlphaTabsIndicator>
+        </com.yinglan.alphatabs.AlphaTabsIndicator>
 
-</LinearLayout>
+    </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/ft_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="20dp"
+        app:backgroundTint="@color/main_blue"
+        app:rippleColor="@color/dizhonghai"
+        android:clickable="true"
+        android:src="@mipmap/plus"
+        app:elevation="10dp"
+        android:layout_marginBottom="80dp"/>
+
+</FrameLayout>
