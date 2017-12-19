@@ -49,6 +49,8 @@
         <LinearLayout
             android:id="@+id/trade_home_search"
             android:layout_width="0dp"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
             android:layout_height="26.7dp"
             android:layout_weight="1"
             android:background="@drawable/find_trade_search_bg"
@@ -66,6 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
+                android:focusable="false"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/login_title"
                 android:background="@null"

@@ -27,7 +27,7 @@ public class HPageDtlActivity extends BaseActivity {
     protected void initView() {
         super.initView();
         WindowUtil.setStatusBarColor(activity,R.color.main_blue);
-        tabTiltle.setLeftIcon(R.mipmap.back);
+        tabTiltle.setLeftIcon(R.mipmap.back_white);
         tabTiltle.setTitleColor(getResources().getColor(R.color.white));
         tabTiltle.setTitle("中山陵");
     }

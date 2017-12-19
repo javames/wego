@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <wego.com.widget.CustomFlowLayout
+        android:id="@+id/flowlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item1" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item2" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item3" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item4" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item5" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item6" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item7" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item8" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item9" />
+
+        <TextView
+            style="@style/flow_item_style"
+            android:text="Item10" />
+
+    </wego.com.widget.CustomFlowLayout>
+</LinearLayout>

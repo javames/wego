@@ -50,6 +50,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void initView(){}
 
 
+    protected void toast(String msg){
+        Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
+    }
 
     protected abstract void setLayoutRes();
 

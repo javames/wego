@@ -1,5 +1,6 @@
 package wego.com.hompage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -13,6 +14,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -52,6 +54,8 @@ public class HomePageFragment extends BaseFragment {
     ImageView msgBtn;
     @BindView(R.id.search_layout)
     LinearLayout searchLayout;
+    @BindView(R.id.search_edit)
+    EditText editText;
     private float distanceY;
     private HomePagerDynamicAdapter adapter;
     private float offset=128;
@@ -73,6 +77,13 @@ public class HomePageFragment extends BaseFragment {
             }
         });
 
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("test","点击事件！");
+                toActivity(getContext(),SearchActivity.class);
+            }
+        });
         msgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

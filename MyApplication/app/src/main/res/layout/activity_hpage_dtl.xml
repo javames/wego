@@ -12,19 +12,10 @@
         android:background="@color/main_blue"
         />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/px_30"
-        android:background="@color/background"
-        />
 <android.support.v4.widget.NestedScrollView
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/px_30"
-    android:id="@+id/nested_scrollview"
-    >
-
+    android:id="@+id/nested_scrollview">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,6 +28,7 @@
             android:layout_height="190dp"
             android:layout_marginLeft="@dimen/px_30"
             android:layout_marginRight="@dimen/px_30"
+            android:layout_marginTop="10dp"
             android:src="@mipmap/test2"
             android:scaleType="centerCrop"
             />
