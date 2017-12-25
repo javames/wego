@@ -32,7 +32,9 @@ import wego.com.mvp.presenter.TxtPricePresenter;
 import wego.com.mvp.view.TxtPriceView;
 import wego.com.recommend.RecomFragment;
 import wego.com.util.WindowUtil;
+import wego.com.widget.CustomToast;
 import wego.com.widget.NoScrollViewPager;
+import wego.com.widget.UtilKt;
 
 public class MainActivity extends BaseActivity implements TxtPriceView{
 
@@ -126,6 +128,8 @@ public class MainActivity extends BaseActivity implements TxtPriceView{
         if(visibility==View.GONE){
             ftBtn.setVisibility(View.VISIBLE);
         }
+
+
     }
     private void hideFloatBtn(){
         int visibility = ftBtn.getVisibility();

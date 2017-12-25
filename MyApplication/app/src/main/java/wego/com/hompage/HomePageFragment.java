@@ -17,6 +17,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.youth.banner.Banner;
@@ -37,6 +38,8 @@ import wego.com.http.common.CommonApi;
 import wego.com.interz.OnVerticalScrollListener;
 import wego.com.util.GlideImageLoader;
 import wego.com.util.ViewClickAnim;
+import wego.com.widget.CustomToast;
+import wego.com.widget.UtilKt;
 
 /**
  * Created by Administrator on 2017/10/31.
@@ -65,9 +68,11 @@ public class HomePageFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_home, null);
     }
 
+
     @Override
     protected void initView() {
         super.initView();
+
         citySelectIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +93,13 @@ public class HomePageFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 ViewClickAnim.clickAnim(view);
+
+                //点击消息图标
+//                CustomToast.Companion.showToast(mContext,"吐司一下啦！");
+                  CustomToast.Companion.showToast(mContext,"吐司一下",R.mipmap.net_connect_fail);
+
+//                UtilKt.toast(mContext,"工具类加载。。。");
+
             }
         });
 

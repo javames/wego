@@ -20,4 +20,5 @@
     <color name="line">#7FCCCCCC</color>
     <color name="background">#eeeeee</color>
     <color name="text_black">#333333</color>
+    <color name="toast_bg">#7F7F7F</color>
 </resources>

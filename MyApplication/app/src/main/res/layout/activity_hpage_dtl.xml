@@ -47,7 +47,6 @@
             android:layout_marginTop="@dimen/px_30"
             android:layout_marginLeft="@dimen/px_30"
             android:layout_marginRight="@dimen/px_30"
-            android:maxHeight="80dp"
             android:ellipsize="end"
             android:textSize="13sp"
             android:text="中山陵位于南京境内，紫金山旁，钟林毓秀，风景秀美，是国父孙中山葬身之地，三民主义，统一中国。为后人所瞻仰。附近有美龄宫，明孝陵等地，是南京休闲游玩的好去处，是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处是南京休闲游玩的好去处金秋时节枫叶火红，漫山遍野，美不胜收。"
