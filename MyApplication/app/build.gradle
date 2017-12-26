@@ -24,6 +24,12 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -50,6 +56,9 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.0'
 
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.android.support:multidex:1.0.2'
+//    compile name:'SMSSDK-3.0.0',ext:'aar'
+//    compile name:'SMSSDKGUI-3.0.0',ext:'aar'
 }
 
 

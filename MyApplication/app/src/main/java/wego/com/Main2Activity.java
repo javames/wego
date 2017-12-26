@@ -26,7 +26,7 @@ public class Main2Activity extends AppCompatActivity {
         pause_btn=findViewById(R.id.pause_btn);
         load_btn=findViewById(R.id.load_btn);
 
-        initDialog();
+//        initDialog();
 
         pause_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +41,8 @@ public class Main2Activity extends AppCompatActivity {
                 progressDialog.show();
             }
         });
+
+
     }
 
     private void initDialog(){

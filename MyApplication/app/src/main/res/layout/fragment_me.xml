@@ -5,92 +5,111 @@
     android:background="@color/background">
 
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <RelativeLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/main_blue">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/main_blue">
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/head_icon"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/test"
-            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/head_icon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/test" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/head_icon"
+                android:layout_marginTop="8dp"
+                android:layout_centerHorizontal="true">
+
+
+                <LinearLayout
+                    android:id="@+id/login_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginLeft="8dp">
+
+                    <TextView
+                        android:id="@+id/nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="落叶无痕"
+                        android:textColor="@color/login_title" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignBottom="@+id/nickname"
+                        android:layout_toRightOf="@id/nickname"
+                        android:src="@mipmap/v" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/unLogin"
+                    android:layout_width="72dp"
+                    android:layout_height="26dp"
+                    android:layout_marginTop="2dp"
+                    android:padding="2dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:background="@drawable/login_now_shape"
+                    android:text="立即登录"
+                    />
+            </FrameLayout>
+
+
+        </RelativeLayout>
+
+
         <TextView
-            android:id="@+id/nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/head_icon"
-            android:textColor="@color/login_title"
-            android:text="落叶无痕"
-            />
+            android:id="@+id/mywallet"
+            style="@style/me_item_text"
+            android:drawableLeft="@mipmap/my_wallet"
+            android:drawablePadding="8dp"
+            android:text="我的钱包" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignBottom="@+id/nickname"
-            android:layout_toRightOf="@id/nickname"
-            android:src="@mipmap/v" />
-    </RelativeLayout>
+        <View style="@style/line_style" />
 
+        <TextView
+            style="@style/me_item_text"
+            android:layout_marginTop="0dp"
+            android:drawableLeft="@mipmap/office_renzheng"
+            android:drawablePadding="8dp"
+            android:text="官方认证" />
 
-    <TextView
-        style="@style/me_item_text"
-        android:drawableLeft="@mipmap/my_wallet"
-        android:text="我的钱包"
-        android:drawablePadding="8dp"
-         />
+        <TextView
+            style="@style/me_item_text"
+            android:drawableLeft="@mipmap/wo_faqi"
+            android:drawablePadding="8dp"
+            android:text="我发起的" />
 
-    <View
-        style="@style/line_style"
-        />
-    <TextView
-        style="@style/me_item_text"
-        android:drawableLeft="@mipmap/office_renzheng"
-        android:layout_marginTop="0dp"
-        android:text="官方认证"
-        android:drawablePadding="8dp"
-        />
+        <View style="@style/line_style" />
 
-    <TextView
-        style="@style/me_item_text"
-        android:drawableLeft="@mipmap/wo_faqi"
-        android:text="我发起的"
-        android:drawablePadding="8dp"
-        />
+        <TextView
+            style="@style/me_item_text"
+            android:layout_marginTop="0dp"
+            android:drawableLeft="@mipmap/wo_canyu"
+            android:drawablePadding="8dp"
+            android:text="我参与的" />
 
-    <View
-        style="@style/line_style"
-        />
+        <View style="@style/line_style" />
 
-    <TextView
-        style="@style/me_item_text"
-        android:drawableLeft="@mipmap/wo_canyu"
-        android:layout_marginTop="0dp"
-        android:text="我参与的"
-        android:drawablePadding="8dp"
-        />
-
-    <View
-        style="@style/line_style"
-        />
-
-    <TextView
-        style="@style/me_item_text"
-        android:drawableLeft="@mipmap/my_read"
-        android:layout_marginTop="0dp"
-        android:text="我的浏览"
-        android:drawablePadding="8dp"
-        />
-</LinearLayout>
+        <TextView
+            style="@style/me_item_text"
+            android:layout_marginTop="0dp"
+            android:drawableLeft="@mipmap/my_read"
+            android:drawablePadding="8dp"
+            android:text="我的浏览" />
+    </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
