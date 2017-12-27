@@ -18,7 +18,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import wego.com.ResetApplication;
+import wego.com.http.common.CommonApi;
 import wego.com.http.response.JSONConverterFactory;
 import wego.com.http.util.NetUtil;
 import wego.com.httpApi.DuomiApi;
@@ -61,8 +63,8 @@ public class RetrofitService {
                     initOkHttpClient();
                     duomiAPI = new Retrofit.Builder()
                             .client(mOkHttpClient)
-                            .baseUrl(BASE_URL)
-                            .addConverterFactory(JSONConverterFactory.create())
+                            .baseUrl(CommonApi.BASE_URL)
+                            .addConverterFactory(GsonConverterFactory.create())
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .build().create(DuomiApi.class);
                 }

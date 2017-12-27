@@ -1,5 +1,7 @@
 package wego.com.http.response;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,8 +24,9 @@ public class JsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
     public T convert(ResponseBody value) throws IOException {
         JSONObject jsonObj;
         try {
-            String result = DES.decrypt3DesNOIps(value.string(),null);
-            jsonObj = new JSONObject(result);
+//            String result = DES.decrypt3DesNOIps(value.string(),null);
+            jsonObj = new JSONObject(value.toString());
+            Log.i("test"," jsonObj: "+jsonObj.toString());
             return (T) jsonObj;
         } catch(JSONException e) {
             return null;

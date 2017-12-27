@@ -1,5 +1,7 @@
 package wego.com.httpApi;
 
+import com.google.gson.Gson;
+
 import org.json.JSONObject;
 
 import io.reactivex.Observable;
@@ -27,4 +29,10 @@ public interface DuomiApi {
      */
     @POST("txnQuery/queryCashList")
     Observable<JSONObject> getActCaseRecord(@Body JSONObject obj);
+
+    @GET("identity")
+    Observable<HttpResult> getIdentityCode(@Query("phone") String phone, @Query("code")String code);
+
+    @GET("/activity/bannerList")
+    Observable<String> test();
 }

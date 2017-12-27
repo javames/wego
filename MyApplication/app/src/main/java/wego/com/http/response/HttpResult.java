@@ -18,8 +18,8 @@ public class HttpResult {
             JSONObject json = new JSONObject(jsonString);
             code = json.getString("code");
 
-            if (json.has("message"))
-                message = json.getString("message");
+            if (json.has("msg"))
+                msg = json.getString("msg");
 
             if (json.has("data")) {
                 data = json.get("data");
@@ -31,7 +31,7 @@ public class HttpResult {
     }
 
     private String code;
-    private String message;
+    private String msg;
     private Object data;
 
     public String getCode() {
@@ -42,12 +42,12 @@ public class HttpResult {
         this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Object getData() {
@@ -59,4 +59,8 @@ public class HttpResult {
     }
 
 
+    @Override
+    public String toString() {
+        return "code: "+code+" data: "+data+" msg: "+msg;
+    }
 }

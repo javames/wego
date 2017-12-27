@@ -88,7 +88,7 @@ public class TxtPriceModelImpl implements TxtPriceModel {
 //
 //            @Override
 //            public void onError(Throwable e) {
-//                Log.i("test","onError....."+e.getMessage()+"// "+e.getCause());
+//                Log.i("test","onError....."+e.getMsg()+"// "+e.getCause());
 //
 //                onNetRequestListener.onFailure(e);
 //                onNetRequestListener.onFinish();
@@ -96,7 +96,7 @@ public class TxtPriceModelImpl implements TxtPriceModel {
 //
 //            @Override
 //            public void onNext(HttpResult<Price> httpResult) {
-//                Log.i("test","onNext....."+httpResult.getMessage());
+//                Log.i("test","onNext....."+httpResult.getMsg());
 //
 //                onNetRequestListener.onSuccess(httpResult);
 //            }

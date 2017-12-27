@@ -2,7 +2,6 @@ package wego.com.util;
 
 import wego.com.http.response.HttpResult;
 import wego.com.interz.Interz;
-import wego.com.mvp.model.Price;
 
 /**
  * Created by Administrator on 2017/11/2.
@@ -18,7 +17,7 @@ public class HttpResultParse {
             Object toObj = JSONUtils.JSONToObj(str, claz);
             response.success(toObj);
         }else{
-            response.error(result.getMessage());
+            response.error(result.getMsg());
         }
 
     }

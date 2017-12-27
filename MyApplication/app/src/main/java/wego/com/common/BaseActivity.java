@@ -10,7 +10,10 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import wego.com.R;
+import wego.com.widget.CustomToast;
 
 /**
  * Created by Administrator on 2017/10/28.
@@ -22,6 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Unbinder bind;
     protected AppCompatActivity activity;
     protected Bundle bundleExtra;
+    protected CompositeDisposable compositeDisposable;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +55,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     protected void toast(String msg){
-        Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
+//        Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
+        CustomToast.Companion.showToast(this,msg);
     }
 
     protected abstract void setLayoutRes();
@@ -75,6 +80,27 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         if(bind!=null){
             bind.unbind();
+        }
+    }
+
+    /**
+     * 将Disposable添加
+     *
+     * @param subscription
+     */
+    protected void addDisposable(Disposable subscription) {
+        if(compositeDisposable==null||compositeDisposable.isDisposed()){
+            compositeDisposable=new CompositeDisposable();
+            compositeDisposable.add(subscription);
+        }
+    }
+
+    /**
+     * 在界面退出等需要解绑观察者的情况下调用此方法统一解绑，防止Rx造成的内存泄漏
+     */
+    protected void unDisposable() {
+        if (compositeDisposable != null) {
+            compositeDisposable.dispose();
         }
     }
 }
