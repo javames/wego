@@ -11,6 +11,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 import wego.com.http.response.HttpResult;
+import wego.com.login.bean.RefreshTokenEntity;
 import wego.com.mvp.model.Price;
 
 /**
@@ -31,8 +32,8 @@ public interface DuomiApi {
     Observable<JSONObject> getActCaseRecord(@Body JSONObject obj);
 
     @GET("identity")
-    Observable<HttpResult> getIdentityCode(@Query("phone") String phone, @Query("code")String code);
+    Observable<HttpResult<RefreshTokenEntity>> getIdentityCode(@Query("phone") String phone, @Query("code")String code);
 
-    @GET("/activity/bannerList")
-    Observable<String> test();
+    @POST("secondLogin")
+    Observable<HttpResult<RefreshTokenEntity>> secondLogin(@Body RefreshTokenEntity obj);
 }

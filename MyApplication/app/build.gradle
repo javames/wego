@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
@@ -11,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -52,13 +52,24 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.9'
     implementation 'com.github.bumptech.glide:glide:4.3.1'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.18'
-
+    implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.0'
 
     compile 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.android.support:multidex:1.0.2'
-//    compile name:'SMSSDK-3.0.0',ext:'aar'
-//    compile name:'SMSSDKGUI-3.0.0',ext:'aar'
+
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+    compileOnly "org.projectlombok:lombok:1.16.16"
+    annotationProcessor "org.projectlombok:lombok:1.16.16"
+
+    //七牛云相关sdk
+    implementation 'com.qiniu:qiniu-android-sdk:7.3.+'
+    implementation'com.squareup.okhttp3:okhttp:3.8.0'
+    implementation 'com.squareup.okio:okio:1.9.0'
+    //implementation 'org.projectlombok:lombok:1.16.8'
+    //annotationProcessor 'org.projectlombok:lombok:1.16.8'
+    //compile name:'SMSSDK-3.0.0',ext:'aar'
+    //compile name:'SMSSDKGUI-3.0.0',ext:'aar'
 }
 
 

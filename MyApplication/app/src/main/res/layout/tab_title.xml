@@ -17,7 +17,9 @@
             android:id="@+id/left_icon"
             android:layout_width="@dimen/px_65"
             android:layout_height="@dimen/px_65"
-            android:layout_marginLeft="@dimen/px_30"/>
+            android:layout_marginLeft="@dimen/px_30"
+            android:src="@mipmap/back_white"
+            />
 
     </FrameLayout>
 
@@ -45,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textSize="18sp"
-        android:textColor="@color/login_title"
+        android:textColor="@color/white"
         android:text="标题"
         />
 </merge>

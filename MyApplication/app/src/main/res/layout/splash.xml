@@ -12,11 +12,15 @@
         android:id="@+id/timer_text"
         android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:includeFontPadding="false"
+        android:layout_marginTop="22dp"
+        android:textSize="12sp"
         android:gravity="center"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="8dp"
         android:layout_gravity="right"
-        tools:text="12"
+        android:background="@drawable/timer_border_r2dp_black"
+        android:textColor="@color/black"
+        tools:text="5"
         />
     <LinearLayout
         android:layout_width="match_parent"

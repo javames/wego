@@ -1,10 +1,12 @@
 package wego.com.login.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/12/27.
  */
 
-public class RefreshTokenEntity {
+public class RefreshTokenEntity implements Serializable{
 
     private Integer id;
     private String access_token;

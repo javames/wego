@@ -23,10 +23,8 @@ class CustomDialog {
                 dialog?.setCancelable(true)
                 dialog?.setCanceledOnTouchOutside(false)
             }
-
             dialog?.show()
-
-
         }
+
     }
 }

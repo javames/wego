@@ -1,5 +1,7 @@
 package wego.com.login.presenter;
 
+import org.json.JSONObject;
+
 import wego.com.http.common.interz.OnNetRequestListener;
 
 /**
@@ -10,6 +12,11 @@ public class LoginPresenterImpl extends BasePresenterImpl implements LoginPresen
 
     @Override
     public void identifyCode(String phone, String code, OnNetRequestListener listener, int requestCode) {
+
+    }
+
+    @Override
+    public void secondLogin(JSONObject jObj, OnNetRequestListener listener, int requestCode) {
 
     }
 }

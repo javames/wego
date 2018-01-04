@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,4 +110,14 @@ public class WindowUtil {
         return result;
     }
 
+    public static int getScreenWidth(Context activity) {
+        DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
+        return displayMetrics.widthPixels;
+    }
+
+
+    public static int getScreenHeight(Context activity) {
+        DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
+        return displayMetrics.heightPixels;
+    }
 }

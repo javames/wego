@@ -7,32 +7,12 @@ import org.json.JSONObject;
  * Created by Administrator on 2017/10/27.
  */
 
-public class HttpResult {
+public class HttpResult<T> {
 
-    public HttpResult(String jsonString) {
-        initJson(jsonString);
-    }
-
-    private void initJson(String jsonString) {
-        try {
-            JSONObject json = new JSONObject(jsonString);
-            code = json.getString("code");
-
-            if (json.has("msg"))
-                msg = json.getString("msg");
-
-            if (json.has("data")) {
-                data = json.get("data");
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
+    public HttpResult() {}
     private String code;
     private String msg;
-    private Object data;
+    private T data;
 
     public String getCode() {
         return code;
@@ -50,11 +30,11 @@ public class HttpResult {
         this.msg = msg;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 

@@ -7,5 +7,13 @@
     <string name="find">发现</string>
     <string name="recom">推荐</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="cancel">取消</string>
+
+    <string name="perinfo">个人资料</string>
+    <string name="from_album">从相册选择</string>
+    <string name="head_portrait">头像</string>
+    <string name="nick">昵称</string>
+    <string name="usern">用户名</string>
+    <string name="not_set">未设置</string>
 
 </resources>

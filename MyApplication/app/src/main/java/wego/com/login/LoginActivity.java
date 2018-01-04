@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -40,6 +41,7 @@ import okhttp3.OkHttpClient;
 import wego.com.R;
 import wego.com.ResetApplication;
 import wego.com.common.BaseActivity;
+import wego.com.event.UserInfoEvent;
 import wego.com.http.RetrofitService;
 import wego.com.http.common.CommonApi;
 import wego.com.http.response.HttpResult;
@@ -70,7 +72,7 @@ public class LoginActivity extends BaseActivity {
         public void onTick(long millisUntilFinished) {
             long time = millisUntilFinished / 1000;
             getIdentityCode.setText(time+"("+"秒)后可重新获取");
-            getIdentityCode.setTextSize(10);
+            getIdentityCode.setTextSize(8);
         }
 
         @Override
@@ -147,8 +149,6 @@ public class LoginActivity extends BaseActivity {
             }
         };
         SMSSDK.registerEventHandler(eh); //注册短信回调
-
-
     }
 
 
@@ -216,10 +216,10 @@ public class LoginActivity extends BaseActivity {
 
     private void checkCode(String phone, String code) {
 
-        Observable<HttpResult> check = RetrofitService.getInstance().createDuomiAPI().getIdentityCode(phone,code);
+        Observable<HttpResult<RefreshTokenEntity>> check = RetrofitService.getInstance().createDuomiAPI().getIdentityCode(phone,code);
         check.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<HttpResult>() {
+                .subscribe(new Observer<HttpResult<RefreshTokenEntity>>() {
 
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -228,17 +228,19 @@ public class LoginActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onNext(HttpResult httpResult) {
+                    public void onNext(HttpResult<RefreshTokenEntity> httpResult) {
 
                         Log.i("test", "onNext....httpResult: "+httpResult.toString());
                         String resultCode = httpResult.getCode();
                         switch (resultCode){
                             case CommonApi.succedCode:
                                 //登录成功
-                                String jsonObj=httpResult.getData().toString();
-                                RefreshTokenEntity refreshTokenEntity= (RefreshTokenEntity) JSONUtils.JSONToObj(jsonObj, RefreshTokenEntity.class);
+                                RefreshTokenEntity refreshTokenEntity=httpResult.getData();
+                                String jsonObj=JSONUtils.GsonString(refreshTokenEntity);
                                 //保存token到本地
                                 ResetApplication.set(CommonApi.refreshTokenEntity,jsonObj);
+                                UserInfoEvent userInfoEvent=new UserInfoEvent(refreshTokenEntity.getName(),refreshTokenEntity.getHeadImage());
+                                EventBus.getDefault().post(userInfoEvent);
                                 finish();
 
                                 break;
