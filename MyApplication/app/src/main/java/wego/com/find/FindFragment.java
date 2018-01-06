@@ -29,7 +29,7 @@ import wego.com.widget.SingleTabTiltle;
 
 public class FindFragment extends BaseFragment {
 
-    @BindView(R.id.find_title)
+    @BindView(R.id.single_tab)
     SingleTabTiltle singleTab;
     @BindView(R.id.refresh)
     SwipeRefreshLayout refresh;

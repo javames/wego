@@ -18,7 +18,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * 单例获取
+ * 单例获取，断点传续
  * Created by Administrator on 2018/1/3.
  */
 

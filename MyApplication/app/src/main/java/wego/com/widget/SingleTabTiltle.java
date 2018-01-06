@@ -25,6 +25,8 @@ public class SingleTabTiltle extends RelativeLayout {
     private FrameLayout leftBtn;
     private FrameLayout rightBtn;
 
+    private int defBgColor;
+
     private Interz.OnClickListener onClickListener;
 
     public SingleTabTiltle(Context context) {
@@ -40,6 +42,8 @@ public class SingleTabTiltle extends RelativeLayout {
 
     private void initView(Context context) {
 
+        setBackgroundColor(getResources().getColor(R.color.main_blue));
+
         View view = LayoutInflater.from(context).inflate(R.layout.tab_title, this);
 
 
@@ -49,7 +53,7 @@ public class SingleTabTiltle extends RelativeLayout {
         leftIcon=view.findViewById(R.id.left_icon);
         rightIcon=view.findViewById(R.id.right_icon);
 
-        title=view.findViewById(R.id.tab_title);
+        title=view.findViewById(R.id.tab_title_txt);
 
 
         leftBtn.setOnClickListener(new OnClickListener() {
@@ -72,6 +76,9 @@ public class SingleTabTiltle extends RelativeLayout {
 
     }
 
+    public void setBgColor(int colorId){
+        setBackgroundColor(colorId);
+    }
     public void setLeftIcon(int resId){
         leftIcon.setImageResource(resId);
     }

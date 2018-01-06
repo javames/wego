@@ -11,10 +11,10 @@
         android:layout_height="0dp"
         />
     <wego.com.widget.SingleTabTiltle
-        android:id="@+id/find_title"
+        android:id="@+id/single_tab"
         android:layout_width="match_parent"
         android:layout_height="44.7dp"
-        android:background="@color/main_blue"/>
+        android:background="@color/main_blue" />
     <FrameLayout
         android:layout_width="match_parent"
         android:background="@color/white"

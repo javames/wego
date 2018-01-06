@@ -28,6 +28,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!-- 该权限用于获取手机相机使用权限，比如发送图片动弹需要拍照 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".ResetApplication"
         android:allowBackup="true"
@@ -37,8 +40,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".splash.SplashActivity"
-            android:theme="@style/FullScreenTheme"
-            >
+            android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -75,6 +77,8 @@
         </activity>
 
         <activity android:name=".me.AvatorActivity"/>
+
+        <activity android:name=".me.ClipImageActivity"/>
     </application>
 
 </manifest>

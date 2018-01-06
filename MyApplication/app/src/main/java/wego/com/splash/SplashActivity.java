@@ -44,6 +44,7 @@ public class SplashActivity extends BaseActivity{
     @BindView(R.id.timer_text)
     TextView timerText;
     private MyTimer myTimer;
+
     @Override
     public void setLayoutRes() {
         layoutResId= R.layout.splash;
@@ -65,13 +66,11 @@ public class SplashActivity extends BaseActivity{
         myTimer=new MyTimer(5000,1000);
         myTimer.start();
 
-        secondLogin();
-
     }
 
     private void secondLogin(){
         String jsonString=ResetApplication.get(CommonApi.refreshTokenEntity,null);
-        Log.i("test"," jsonString: "+jsonString);
+        Log.i(TAG," jsonString: "+jsonString);
         if(!TextUtils.isEmpty(jsonString)){
             RefreshTokenEntity refreshTokenEntity= (RefreshTokenEntity) JSONUtils.JSONToObj(jsonString,RefreshTokenEntity.class);
             Observable<HttpResult<RefreshTokenEntity>> secondLogin = RetrofitService.getInstance().createDuomiAPI().secondLogin(refreshTokenEntity);
@@ -81,14 +80,14 @@ public class SplashActivity extends BaseActivity{
 
                         @Override
                         public void onSubscribe(Disposable d) {
-                            Log.i("test", "onSubscribe.....");
+                            Log.i(TAG, "onSubscribe.....");
                             addDisposable(d);
                         }
 
                         @Override
                         public void onNext(HttpResult<RefreshTokenEntity> httpResult) {
 
-                            Log.i("test", "onNext....httpResult: "+httpResult.toString());
+                            Log.i(TAG, "onNext....httpResult: "+httpResult.toString());
                             String resultCode = httpResult.getCode();
                             switch (resultCode){
                                 case CommonApi.succedCode:
@@ -99,25 +98,26 @@ public class SplashActivity extends BaseActivity{
                                     ResetApplication.set(CommonApi.refreshTokenEntity,jsonObj);
                                     UserInfoEvent userInfoEvent=new UserInfoEvent(refreshTokenEntity.getName(),refreshTokenEntity.getHeadImage());
                                     EventBus.getDefault().post(userInfoEvent);
-                                    finish();
-
+                                    ToActivity(SplashActivity.this,MainActivity.class,null);
                                     break;
                                 case CommonApi.outUsedTime:
                                     toast("超出时间失效！");
                                     ResetApplication.set(CommonApi.refreshTokenEntity,null);
+                                    ToActivity(SplashActivity.this,LoginActivity.class,null);
                                     break;
                                 case CommonApi.userNotExsit:
                                     toast("用户不存在！");
-                                    ResetApplication.set(CommonApi.refreshTokenEntity,null);
+                                    ToActivity(SplashActivity.this,LoginActivity.class,null);
                                     break;
-
                             }
+                            finish();
 
                         }
 
                         @Override
                         public void onError(Throwable e) {
-                            Log.i("test", "onError....." + e.getMessage() + "// " + e.getCause()+" e= "+e);
+                            Log.i(TAG, "onError....." + e.getMessage() + "// " + e.getCause()+" e= "+e);
+                            ToActivity(SplashActivity.this,LoginActivity.class,null);
                         }
 
                         @Override
@@ -125,6 +125,9 @@ public class SplashActivity extends BaseActivity{
                             Log.i("test", "onCompleted.....");
                         }
                     });
+        }else {
+            finish();
+            ToActivity(this,LoginActivity.class,null);
         }
     }
     private class MyTimer extends CountDownTimer {
@@ -144,8 +147,9 @@ public class SplashActivity extends BaseActivity{
             if(timerText!=null){
                 timerText.setText("0");
             }
-            ToActivity(SplashActivity.this,MainActivity.class,null);
-            finish();
+
+            secondLogin();
+
         }
     }
 

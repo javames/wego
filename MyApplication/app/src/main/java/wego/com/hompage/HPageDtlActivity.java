@@ -16,7 +16,7 @@ import wego.com.widget.SingleTabTiltle;
 
 public class HPageDtlActivity extends BaseActivity {
 
-    @BindView(R.id.hpage_dtl_tab)
+    @BindView(R.id.tab_title)
     SingleTabTiltle tabTiltle;
     @Override
     protected void setLayoutRes() {
@@ -26,7 +26,7 @@ public class HPageDtlActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-        WindowUtil.setStatusBarColor(activity,R.color.main_blue);
+
         tabTiltle.setLeftIcon(R.mipmap.back_white);
         tabTiltle.setTitleColor(getResources().getColor(R.color.white));
         tabTiltle.setTitle("中山陵");

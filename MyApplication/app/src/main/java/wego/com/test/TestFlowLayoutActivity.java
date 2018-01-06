@@ -17,7 +17,7 @@ public class TestFlowLayoutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flowlayout);
-        flowlayout=findViewById(R.id.flowlayout);
+        setContentView(R.layout.activity_clipimage);
+//        flowlayout=findViewById(R.id.flowlayout);
     }
 }

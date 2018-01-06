@@ -7,6 +7,9 @@ import android.support.multidex.MultiDex;
 import android.support.v4.content.SharedPreferencesCompat;
 
 import com.mob.MobSDK;
+import com.qiniu.android.common.Zone;
+import com.qiniu.android.storage.Configuration;
+import com.qiniu.android.storage.UploadManager;
 
 import wego.com.util.CrashUtil;
 
@@ -18,6 +21,7 @@ public class ResetApplication extends Application {
 
     private static final String PREF_NAME = "wego.pref";
     private static Context mContext;
+    private static UploadManager uploadManager;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -26,6 +30,7 @@ public class ResetApplication extends Application {
 
         MobSDK.init(this,"234f1eee14d17","37e06cdf17f064d27547a08f16d0cc1d");
 
+        uploadManager = new UploadManager();
     }
 
 
@@ -61,5 +66,9 @@ public class ResetApplication extends Application {
 
     public static Context getContext(){
         return mContext;
+    }
+
+    public static UploadManager getUploadManager(){
+        return uploadManager;
     }
 }

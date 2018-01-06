@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
@@ -13,7 +14,10 @@ import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import wego.com.R;
+import wego.com.interz.Interz;
+import wego.com.util.WindowUtil;
 import wego.com.widget.CustomToast;
+import wego.com.widget.SingleTabTiltle;
 
 /**
  * Created by Administrator on 2017/10/28.
@@ -26,12 +30,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected AppCompatActivity activity;
     protected Bundle bundleExtra;
     protected CompositeDisposable compositeDisposable;
+    protected SingleTabTiltle title;
+
+    protected  String TAG=this.getClass().getSimpleName();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLayoutRes();
         setWindowParams();
         setContentView(layoutResId);
+        title=findViewById(R.id.tab_title);
+        if(title!=null){
+            initTab();
+        }
+        WindowUtil.setStatusBarColor(this,R.color.main_blue);
         bind = ButterKnife.bind(this);
         activity=this;
         getIntentArgus();
@@ -39,6 +51,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
     }
 
+    protected void initTab(){
+        title.setLeftClickListener(new Interz.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
     private void getIntentArgus() {
         Intent intent = getIntent();
         if(intent.hasExtra("data")){
